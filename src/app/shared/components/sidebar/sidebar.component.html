@@ -9,24 +9,29 @@
 
     <mat-divider></mat-divider>
 
-    <h2 matSubheader>Pages</h2>
-
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">Posts</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">Articles</a>
-
-    <mat-divider></mat-divider>
-
-    <h2 matSubheader>Tools</h2>
-
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-        <mat-icon>import_contacts</mat-icon>
-        Contacts
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">
+      <mat-icon>dashboard</mat-icon>
+      Panel de control
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">
+      <mat-icon>folder</mat-icon>
+      Documentos
     </a>
 
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/contacts">
-        <mat-icon>contact_phone</mat-icon>
-        Leads
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/clientes">
+        <mat-icon>contacts</mat-icon>
+        Clientes
     </a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/informes">
+      <mat-icon>picture_as_pdf</mat-icon>
+      Informes
+    </a>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/ajustes">
+      <mat-icon>settings</mat-icon>
+      Ajustes
+    </a>
+
 
 </mat-nav-list>
