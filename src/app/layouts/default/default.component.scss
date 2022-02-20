@@ -14,3 +14,20 @@ mat-drawer-container {
 mat-drawer-content {
   padding: 20px;
 }
+.bg-image {
+  /* The image used */
+  background-image: url('/assets/image/fondo_login.jpg');
+
+  /* Add the blur effect */
+  -webkit-filter: grayscale(50%);
+  filter: grayscale(50%);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
