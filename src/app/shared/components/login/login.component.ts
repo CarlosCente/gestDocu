@@ -1,3 +1,5 @@
+import { AuthUser } from './../../../models/AuthUser';
+import { UsersService } from './../../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,16 +15,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-  form: FormGroup;
+  formLogin: FormGroup;
   public loginInvalid: boolean;
   private formSubmitAttempt: boolean;
   private returnUrl: string;
+  public  authUser: AuthUser ;
 
   constructor(
 
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    public userService: UsersService
 
   ) {
 
@@ -30,8 +34,7 @@ export class LoginComponent implements OnInit {
 
   async ngOnInit() {
 
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/game';
-    this.form = this.fb.group({
+    this.formLogin = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
@@ -43,10 +46,20 @@ export class LoginComponent implements OnInit {
     this.loginInvalid = false;
     this.formSubmitAttempt = false;
 
-    if (this.form.valid) {
+    if (this.formLogin.valid) {
       try {
-        const username = this.form.get('username').value;
-        const password = this.form.get('password').value;
+        const username = this.formLogin.get('username').value;
+        const password = this.formLogin.get('password').value;
+
+        this.authUser = {
+          username: username,
+          password: password
+        };
+
+        this.userService.login(this.authUser).subscribe( data => {
+          console.log(data);
+        });
+
       } catch (err) {
         this.loginInvalid = true;
       }

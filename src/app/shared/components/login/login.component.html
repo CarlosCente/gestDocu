@@ -2,17 +2,16 @@
   <mat-card class="mat-elevation-z12">
     <mat-card-title class="card-titulo">Iniciar sesión</mat-card-title>
           <mat-card-content>
-            <form action="">
+            <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
               <mat-form-field>
                 <input
                   matInput
                   placeholder="Nombre de usuario"
                   required
                   name="username"
-                  ngModel
-                  #username="ngModel">
-                  <mat-error *ngIf="username.invalid">El nombre de usuario es obligatorio</mat-error>
+                  formControlName="username">
                 <mat-icon matSuffix>person</mat-icon>
+                <mat-error *ngIf="this.formLogin.controls['username'].errors?.required">El nombre de usuario es obligatorio</mat-error>
               </mat-form-field>
               <mat-form-field>
                 <input
@@ -22,22 +21,16 @@
                   required
                   minlength="6"
                   name="password"
-                  ngModel
-                  #password="ngModel">
-                  <mat-error
-                    *ngIf="password.errors && password.errors.required">
-                    La contraseña es obligatoria
-                  </mat-error>
-                  <mat-error
-                    *ngIf="password.errors && password.errors.minlength">
-                    La contraseña debe tener más de 6 caracteres
-                  </mat-error>
+                  formControlName="password">
                 <mat-icon matSuffix>lock</mat-icon>
+                <mat-error *ngIf="this.formLogin.controls['password'].errors?.required">La contraseña es obligatoria</mat-error>
+                <mat-error *ngIf="this.formLogin.controls['password'].errors?.minlength">La longitud debe ser mínimo de 6 caracteres</mat-error>
               </mat-form-field>
               <mat-checkbox>Mostrar contraseña</mat-checkbox>
               <button
                 mat-raised-button
                 color="primary"
+                type="submit"
                 class="login-button">
                 Entrar
               </button>
