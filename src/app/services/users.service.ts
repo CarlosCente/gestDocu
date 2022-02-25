@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { AuthUser } from './../models/AuthUser';
+import { AuthUser } from '../models/authUser';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";

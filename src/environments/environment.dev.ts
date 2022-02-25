@@ -1,13 +1,13 @@
 export const environment = {
-  production: true,
-  name: 'prod',
-  API: '',
+  production: false,
+  name: 'dev',
+  API: 'http://localhost:8080/',
   APIS: {
-    SECURITY: ''
+    SECURITY: 'http://localhost:3000/'
   },
   CORE_CONFIG: {
     /** Ruta del fichero de configuración necesario para que arranque la aplicación */
-    CONFIG_FILEPATH: 'assets/config.prod.json',
+    CONFIG_FILEPATH: 'assets/config.dev.json',
     /** Añade a la url del proyecto el siguiente path */
     BASE_URL: '/',
     SECURITY: {
