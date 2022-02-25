@@ -15,12 +15,6 @@ export class UsersService {
     private http: HttpClient,
     private router: Router) {}
 
-  /* En el userService se añade también la funcionalidad respecto a la autenticación y manejo del token*/
-  login(authUser: AuthUser) : Observable<any>{
-    return this.http.post(this.accesoLogin, authUser);
-
-  }
-
   closeSession() {
     sessionStorage.clear();
     localStorage.clear();

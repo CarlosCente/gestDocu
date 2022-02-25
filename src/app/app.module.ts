@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { UsersService } from './services/users.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     DefaultModule,
     HttpClientModule
   ],
-  providers: [UsersService],
+  providers: [UsersService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

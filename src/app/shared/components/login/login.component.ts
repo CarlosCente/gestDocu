@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 import { AuthUser } from './../../../models/AuthUser';
 import { UsersService } from './../../../services/users.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,17 +17,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   formLogin: FormGroup;
-  public loginInvalid: boolean;
+  private loginInvalid: boolean;
   private formSubmitAttempt: boolean;
   private returnUrl: string;
-  public  authUser: AuthUser ;
+  private  authUser: AuthUser ;
 
   constructor(
 
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    public userService: UsersService
+    private userService: UsersService,
+    private authService: AuthService
 
   ) {
 
@@ -56,7 +58,7 @@ export class LoginComponent implements OnInit {
           password: password
         };
 
-        this.userService.login(this.authUser).subscribe( data => {
+        this.authService.login(this.authUser).subscribe( data => {
           console.log(data);
         });
 
