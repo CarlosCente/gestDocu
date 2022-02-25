@@ -14,6 +14,9 @@ const routes: Routes = [{
     path: '',
     component: DashboardComponent
   }, {
+    path: 'default',
+    component: DefaultComponent
+  }, {
     path: 'posts',
     component: PostsComponent
   }]
