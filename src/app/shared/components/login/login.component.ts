@@ -1,9 +1,9 @@
 import { AuthService } from './../../../services/auth.service';
 import { AuthUser } from '../../../models/authUser';
-import { UsersService } from './../../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -23,15 +23,11 @@ export class LoginComponent implements OnInit {
   private  authUser: AuthUser ;
 
   constructor(
-
     private fb: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
-    private userService: UsersService,
     private authService: AuthService
-
   ) {
-
+    console.log(environment.name);
   }
 
   async ngOnInit() {

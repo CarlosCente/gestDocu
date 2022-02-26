@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AppConfigService } from './app-config.service';
 import { Security } from '../models/security';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from "src/environments/environment";
 
 
 @Injectable({
@@ -12,10 +13,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthService {
 
   constructor(private http: HttpClient,
-      private router: Router,
-      @Inject('env') private ENV)
+      private router: Router)
       {
-        this.SECURITY_API = this.ENV.APIS.SECURITY;
+        this.SECURITY_API = environment.APIS.SECURITY;
       }
 
     private CONFIG = AppConfigService.settings;

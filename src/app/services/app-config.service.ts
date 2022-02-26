@@ -1,7 +1,7 @@
 import { AppConfig } from './../models/appConfig';
 import { HttpClient } from "@angular/common/http";
-import { Inject, Injectable } from "@angular/core";
-
+import { Injectable } from "@angular/core";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +12,10 @@ export class AppConfigService {
 
     constructor(
         private http: HttpClient,
-        @Inject('env') private ENV,
     ) {}
 
     loadConfig() {
-      const jsonFile = this.ENV.CORE_CONFIG.CONFIG_FILEPATH;
+      const jsonFile = environment.CORE_CONFIG.CONFIG_FILEPATH;
       AppConfigService.settings = {
           env: {
               name: ''

@@ -145,6 +145,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "gestdocu:serve:production"
+            },
+            "dev": {
+              "devServerTarget": "gestdocu:serve:dev"
             }
           }
         }

@@ -2,7 +2,7 @@ import { AppConfigService } from './services/app-config.service';
 import { AuthService } from './services/auth.service';
 import { UsersService } from './services/users.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, InjectionToken, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +28,6 @@ export function initializeApp(appConfig : AppConfigService) {
   providers: [
     UsersService,
     AuthService,
-    AppConfigService,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeApp,

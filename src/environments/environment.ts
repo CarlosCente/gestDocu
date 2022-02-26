@@ -1,21 +1,22 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
   production: false,
   name: 'dev',
-  API: '',
+  API: 'http://localhost:8080/',
   APIS: {
-    SECURITY: ''
+    SECURITY: 'http://localhost:3000/'
   },
+  CORE_CONFIG: {
+    /** Ruta del fichero de configuración necesario para que arranque la aplicación */
+    CONFIG_FILEPATH: 'assets/config.dev.json',
+    /** Añade a la url del proyecto el siguiente path */
+    BASE_URL: '/',
+    SECURITY: {
+      EXPIRE_TIME_IN_MINUTES: 15,
+      WS_LOGIN: {
+        LDAP: 'accesoLdap/',
+      },
+      WS_LOGOUT: 'logout/',
+    },
+  },
+  SAVEPREFIX: '',
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
