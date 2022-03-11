@@ -1,9 +1,9 @@
 import { AuthService } from './../../../services/auth.service';
-import { AuthUser } from './../../../models/AuthUser';
-import { UsersService } from './../../../services/users.service';
+import { AuthUser } from '../../../models/authUser';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
 
@@ -22,13 +22,10 @@ export class LoginComponent implements OnInit {
   private  authUser: AuthUser ;
 
   constructor(
-
     private fb: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
-    private userService: UsersService,
     private authService: AuthService
-    ) {
+  ) {
   }
 
   async ngOnInit() {
@@ -50,12 +47,7 @@ export class LoginComponent implements OnInit {
         const username = this.formLogin.get('username').value;
         const password = this.formLogin.get('password').value;
 
-        this.authUser = {
-          username: username,
-          password: password
-        };
-
-        this.authService.login(this.authUser).subscribe( data => {
+        this.authService.login(username, password).subscribe( data => {
           console.log("User is logged in");
           this.router.navigateByUrl('/default');
         });

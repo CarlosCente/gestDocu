@@ -1,0 +1,29 @@
+{
+  "env": {
+    "name": ""
+  },
+  "logging": {
+      "console": true,
+      "appInsights": true
+  },
+  "security": {
+      "sessionExpireTimeInMinutes": 15,
+      "ws":{
+          "loginCredentials": {
+              "path": "api/auth/login",
+              "headers": {
+                  "Authorization": "Basic bmctdGVzdDo=",
+                  "ContentType": "application/x-www-form-urlencoded;charset=utf-8",
+                  "grant_type": "username"
+              },
+              "body": "\"grant_type=password&username=\" + username + \"&password=\" + password"
+          },
+          "logout": {
+              "path": "api/auth/logout",
+              "headers": {
+              },
+              "body": ""
+          }
+      }
+  }
+}
