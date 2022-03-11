@@ -1,3 +1,5 @@
+/* Elementos comunes */
+
 .login_page {
   top: 0;
   margin: 0;
@@ -13,11 +15,6 @@
   overflow: hidden;
 }
 
-mat-card {
-  width: 25%;
-  margin: 10% auto;
-  border-radius: 12px;
-}
 mat-form-field, mat-checkbox {
   width: 80%;
   display: block;
@@ -39,4 +36,32 @@ mat-card-content {
   text-align:center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
+}
+
+/* Configuracion segun el dispositivo utilizado (Web, Tablet o Movil) */
+/* Web o PC */
+@media screen {
+  mat-card {
+    width: 25%;
+    margin: 10% auto;
+    border-radius: 12px;
+  }
+}
+
+/* Tablet */
+@media screen and (max-width: 992px) {
+  mat-card {
+    width: 40%;
+    margin: 10% auto;
+    border-radius: 12px;
+  }
+}
+
+/* Movil */
+@media screen and (max-width: 600px) {
+  mat-card {
+    width: 60%;
+    margin: 10% auto;
+    border-radius: 12px;
+  }
 }
