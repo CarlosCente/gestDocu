@@ -5,7 +5,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
-
 @Component({
 
   selector: 'app-login',
@@ -27,7 +26,6 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: AuthService
   ) {
-    console.log(environment.name);
   }
 
   async ngOnInit() {
